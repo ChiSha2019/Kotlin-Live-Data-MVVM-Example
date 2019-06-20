@@ -3,10 +3,7 @@ package com.godlonton.livedataexample.viewmodel
 import android.arch.lifecycle.MutableLiveData
 import com.godlonton.livedataexample.model.Blog
 import com.godlonton.livedataexample.networking.RestApiService
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 import retrofit2.HttpException
 
 /**
@@ -44,6 +41,8 @@ class BlogRepository() {
                 }
             }
         }
+        CoroutineScope(Dispatchers.IO).cancel()
         return mutableLiveData;
+        //
     }
 }

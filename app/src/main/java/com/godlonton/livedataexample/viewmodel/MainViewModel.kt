@@ -1,9 +1,7 @@
 package com.godlonton.livedataexample.viewmodel
 
-
-import android.app.Application
-import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.LiveData
+import android.arch.lifecycle.ViewModel
 import com.godlonton.livedataexample.model.Blog
 
 /**
@@ -11,7 +9,7 @@ import com.godlonton.livedataexample.model.Blog
  * Author     : Ryan Godlonton-Shaw
  */
 
-class MainViewModel(application: Application) : AndroidViewModel(application) {
+class MainViewModel() : ViewModel() {
 
     val movieRepository= BlogRepository()
     val allBlog: LiveData<List<Blog>> get() = movieRepository.getMutableLiveData()
