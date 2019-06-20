@@ -14,4 +14,8 @@ class MainViewModel() : ViewModel() {
     val movieRepository= BlogRepository()
     val allBlog: LiveData<List<Blog>> get() = movieRepository.getMutableLiveData()
 
+    override fun onCleared() {
+        super.onCleared()
+        movieRepository.completableJob.cancel()
+    }
 }

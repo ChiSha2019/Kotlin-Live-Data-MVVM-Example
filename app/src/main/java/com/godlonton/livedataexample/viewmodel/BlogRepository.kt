@@ -15,13 +15,15 @@ class BlogRepository() {
 
     private var movies = mutableListOf<Blog>()
     private var mutableLiveData = MutableLiveData<List<Blog>>()
+    val completableJob = Job()
+    private val coroutineScope = CoroutineScope(Dispatchers.IO + completableJob)
 
     private val thisApiCorService by lazy {
         RestApiService.createCorService()
     }
 
     fun getMutableLiveData():MutableLiveData<List<Blog>> {
-        CoroutineScope(Dispatchers.IO).launch {
+        coroutineScope.launch {
             val request = thisApiCorService.getPopularBlog()
             withContext(Dispatchers.Main) {
                 try {
@@ -41,8 +43,6 @@ class BlogRepository() {
                 }
             }
         }
-        CoroutineScope(Dispatchers.IO).cancel()
         return mutableLiveData;
-        //
     }
 }
