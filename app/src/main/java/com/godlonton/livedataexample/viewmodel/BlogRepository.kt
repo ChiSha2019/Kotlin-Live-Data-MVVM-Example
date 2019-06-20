@@ -1,6 +1,5 @@
 package com.godlonton.livedataexample.viewmodel
 
-import android.app.Application
 import android.arch.lifecycle.MutableLiveData
 import com.godlonton.livedataexample.model.Blog
 import com.godlonton.livedataexample.networking.RestApiService

@@ -9,19 +9,19 @@ import com.squareup.moshi.JsonClass
  */
 
 @JsonClass(generateAdapter = true)
-class Blog {
+data class Blog (
 
     @Json(name="author")
-    var author: String? = null
+    var author: String? = null,
     @Json(name="description")
-    var description: String? = null
+    var description: String? = null,
     @Json(name="link")
-    var link: String? = null
+    var link: String? = null,
     @Json(name="pubDate")
-    var pubDate: String? = null
+    var pubDate: String? = null,
     @Json(name="thumbnail")
-    var thumbnail: String? = null
+    var thumbnail: String? = null,
     @Json(name="title")
     var title: String? = null
 
-}
+)

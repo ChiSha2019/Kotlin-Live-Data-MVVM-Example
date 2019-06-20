@@ -9,15 +9,15 @@ import com.squareup.moshi.JsonClass
  */
 
 @JsonClass(generateAdapter = true)
-class BlogWrapper {
+data class BlogWrapper (
 
     @Json(name="data")
-    var blog: MutableList<Blog>? = null
+    var blog: MutableList<Blog>? = null,
     @Json(name="error")
-    var error: Boolean? = null
+    var error: Boolean? = null,
     @Json(name="message")
-    var message: String? = null
+    var message: String? = null,
     @Json(name="status")
     var status: String? = null
 
-}
+)
